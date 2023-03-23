@@ -1,10 +1,13 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:withoutgetx/model/product_model.dart';
 
 class CardPage extends StatefulWidget {
-  ProductModel? productModel;
-  var headphone;
-  CardPage({Key? key, this.headphone, this.productModel}) : super(key: key);
+  // ProductModel? productModel;
+  var product = <ProductModel>[];
+  int index;
+  CardPage({Key? key, required this.product, required this.index,}) : super(key: key);
 
   @override
   State<CardPage> createState() => _CardPageState();
@@ -12,6 +15,9 @@ class CardPage extends StatefulWidget {
 
 class _CardPageState extends State<CardPage> {
   var netTotal;
+
+
+  var lst = List.filled(productList.length, 1);
 
   // void getTotal() {
   //   netTotal = widget.productModel!
@@ -31,8 +37,7 @@ class _CardPageState extends State<CardPage> {
 
   @override
   Widget build(BuildContext context) {
-    //var getData = widget.productModel;
-    var list = productList[widget.headphone!];
+    var list = widget.product[widget.index];
 
     return SafeArea(
         child: Scaffold(
@@ -129,16 +134,19 @@ class _CardPageState extends State<CardPage> {
                                           InkWell(
                                             onTap: () {
                                               // widget.productModel!.quantity--;
+                                              list.q--;
+
                                               setState(() {});
                                             },
                                             child: Icon(Icons.remove),
                                           ),
                                           Text(
-                                              "${widget.productModel!.quantity}"),
+                                              "${list.q}"),
                                           InkWell(
                                             onTap: () {
                                               // widget.productModel![index].quantity++;
                                               // getTotal();
+                                              list.q++;
                                               setState(() {});
                                             },
                                             child: Icon(Icons.add),
