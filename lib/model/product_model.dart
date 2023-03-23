@@ -1,4 +1,5 @@
 class ProductModel {
+  int q = 1;
   int? id;
   String? image;
   String? name;

@@ -88,12 +88,12 @@ class HomePage extends StatelessWidget {
                   mainAxisSpacing: 15),
               itemCount: productList.length,
               itemBuilder: (context, index) {
-                var headPhoneData = productList[index];
+                // var headPhoneData = productList[index];
                 return InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => CardPage(
-                              productModel:headPhoneData,headphone: index,
+                              product: productList,index: index,
                             )));
                   },
                   child: Column(
